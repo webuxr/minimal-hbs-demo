@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Concise Handlebars.js</title>
+
+    <!-- 0a. CSS -->
+    <link rel="stylesheet" href="css/style.css">
+ 
+    <!-- 0a. JS -->
+    <!-- <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script> --><!-- online jquery.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script> --><!-- online handlebars.js -->
+    <script src="js/jquery-2.0.3.min.js"></script><!-- local jquery.js -->
+    <script src="js/handlebars-1.1.2.min.js"></script><!-- local handlebars.js -->
+  </head>
+ 
+  <body>
+    <div id="page_wrap">
+
+      <!-- 1. Data (json format!) -->
+      <script>
+        var url='js/data.json'; // relative url: 'data.json'; protocol-relative absolute url: '//website.org/path/to/data.json';
+      </script>
+   
+      <!-- 2. Anchor -->
+      <div id="anchor"></div>
+ 
+    </div>
+
+    <!-- 3. Template -->
+    <script id="tpl" type="text/template">
+      <h1>Concise Handlebars.js <small><a href="https://gist.github.com/hugolpz/8075193" title="View hugolpz's project on GitHub">Minimal HandlebarsJS Demo by hugolpz</small></h1>
+
+      {{#people}}
+        <div class="people">
+          <img src="imgs/{{photo}}" alt="{{name}}">
+          <h2 class="title">
+            {{name}} {{family}}
+          </h2>
+          <p class="social">
+            <a href="https://www.twitter.com/{{twitter}}" title="Visit {{name}} on Twitter">@{{twitter}}</a>
+          </p>
+          <p class="desc scroller"><b>{{title}}</b><br><em>{{place}}</em><br>{{introduction}}</p>
+        </div>
+      {{/people}}
+    </script>
+ 
+    <!-- 4. Handlebars.js slingshot -->
+    <script>
+      // 4a.function creation
+      var slingshot = function (url, tplId, anchor) {
+       $.getJSON(url, function(data) {
+          var template = $(tplId).html();
+          var stone = Handlebars.compile(template)(data);
+          $(anchor).append(stone);
+        });
+      }
+
+      // 4b.function firing
+      slingshot('js/data.json', '#tpl', '#anchor'); // since url = 'data.json', we can use both notations.
+    </script>
+  </body>
+</html>

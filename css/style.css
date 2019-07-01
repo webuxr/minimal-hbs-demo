@@ -1,0 +1,96 @@
+/* CSS3 */
+html {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 10px; /* set base size here for easy math later */
+}
+
+body {
+  border: 0 none;
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+}
+
+#page_wrap {
+  margin: 10px;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0 6px;
+}
+
+h1 > small {
+  font-size: 1.2rem;
+  float: left;
+  width: 100%;
+}
+
+img {
+  min-height: 100%;
+  width: 256px;
+}
+
+#anchor {
+  border: 0 none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.people {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #333;
+  display: block;
+  float: left;
+  margin: 6px;
+  min-height: 525px;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  text-decoration: none;
+  width: 288px; /* 1 + 15 + 256 + 15 + 1 = 288px (with border-box set we don't count margin) */
+}
+
+.people:hover { /* 6 + 4 + 12 + 256 + 12 + 4 + 6 = 300px */
+  border: 4px solid #0084b4;
+  padding: 12px; /* padding + border = 16px */
+}
+
+.people a {
+ color: #0084b4;
+ /* font-size: 1.5em; */
+ font-weight: bold;
+ text-decoration:none;
+}
+
+.people a:hover {
+  text-decoration: underline;
+}
+
+.people h2.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.people p.social > a,
+.people p.desc {
+  font-size: 1.6rem;
+}
+
+.people .desc {
+  height: 100px;
+  margin-top: 0;
+}
+
+.people .desc > b {
+  float: left;
+  padding-bottom: 10px;
+  width: 100%;
+}
